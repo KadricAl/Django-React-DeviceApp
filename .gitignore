@@ -1,0 +1,46 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*.sqlite3
+*.log
+*.pot
+*.pyc
+*.pyo
+*.pyd
+*.env
+.env
+.venv/
+env/
+venv/
+db.sqlite3
+media/
+staticfiles/
+static/
+*.migrations/
+
+# VSCode / IDEs
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Frontend / React
+frontend/node_modules/
+frontend/build/
+frontend/.env
+frontend/.cache/
+frontend/.next/
+
+#Backend
+backend/.env
+
+# Git
+*.orig
+*.swp
+*.bak
+*.tmp
+*.lock
