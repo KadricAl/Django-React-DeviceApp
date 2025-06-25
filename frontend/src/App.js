@@ -1,21 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
 import React from 'react';
-import Button from '@mui/material/Button';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
+import Home from './pages/Home';
+import Devices from './pages/Devices';
+import DeviceDetail from './pages/DeviceDetail';
+import AddService from './pages/AddService';
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center space-y-6">
-      <h1 className="text-3xl font-bold text-blue-600">React + Tailwind + MUI</h1>
-      
-      <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-        Tailwind Button
-      </button>
+    <Router>
+      <div className="flex flex-col min-h-screen">
+        <Header />
 
-      <Button variant="contained" color="primary">
-        MUI Button
-      </Button>
-    </div>
+        <main className="flex-grow container mx-auto px-6 py-8">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/devices" element={<Devices />} />
+            <Route path="/devices/:id" element={<DeviceDetail />} />
+            <Route path="/devices/:id/add-service" element={<AddService />} />
+          </Routes>
+        </main>
+
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
