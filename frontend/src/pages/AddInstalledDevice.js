@@ -84,11 +84,10 @@ export default function AddInstalledDevice() {
         <div>
           <label className="block font-semibold">Device:</label>
           <select
-            name="device"
-            value={formData.device}
+            name="device_id"
+            value={formData.device_id}
             onChange={handleChange}
             className="w-full p-2 border rounded"
-            required
           >
             <option value="">-- Select Device --</option>
             {devices.map(device => (
@@ -102,16 +101,15 @@ export default function AddInstalledDevice() {
         <div>
           <label className="block font-semibold">Customer:</label>
           <select
-            name="customer"
-            value={formData.customer}
+            name="customer_id"
+            value={formData.customer_id}
             onChange={handleChange}
             className="w-full p-2 border rounded"
-            required
           >
             <option value="">-- Select Customer --</option>
-            {customers.map(customer => (
-              <option key={customer.id} value={customer.id}>
-                {customer.name}
+            {customers.map(c => (
+              <option key={c.id} value={c.id}>
+                {c.name}
               </option>
             ))}
           </select>

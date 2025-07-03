@@ -16,6 +16,8 @@ import InstalledDevices from './pages/InstalledDevices';
 import AddInstalledDevice from './pages/AddInstalledDevice';
 import InstalledDeviceDetail from './pages/InstalledDeviceDetail';
 import EditInstalledDevice from './pages/EditInstalledDevice';
+import ServiceHistory from './pages/ServiceHistory';
+import EditService from './pages/EditService';
 
 function App() {
   return (
@@ -38,6 +40,8 @@ function App() {
             <Route path="/installed-devices/:id" element={<InstalledDeviceDetail />} />
             <Route path="/installed-devices/:id/add-service" element={<AddService />} />
             <Route path="/installed-devices/:id/edit" element={<EditInstalledDevice />} />
+            <Route path="/services" element={<ServiceHistory />} />
+            <Route path="/services/:id/edit" element={<EditService />} />
           </Routes>
         </main>
 

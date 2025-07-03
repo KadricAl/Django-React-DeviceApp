@@ -1,21 +1,27 @@
 from rest_framework import serializers
 from .models import InstalledDevice, Device, Customer
-
-class DeviceSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Device
-        fields = ['id', 'name', 'type']  # add other fields as needed
-
-class CustomerSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Customer
-        fields = ['id', 'name']  # add other fields as needed
+from devices.serializers import DeviceSerializer
+from customers.serializers import CustomerSerializer
 
 class InstalledDeviceSerializer(serializers.ModelSerializer):
     device = DeviceSerializer(read_only=True)
     customer = CustomerSerializer(read_only=True)
-    
+
+    device_id = serializers.PrimaryKeyRelatedField(
+        queryset=Device.objects.all(),
+        source='device',
+        write_only=True
+    )
+    customer_id = serializers.PrimaryKeyRelatedField(
+        queryset=Customer.objects.all(),
+        source='customer',
+        write_only=True
+    )
+
     class Meta:
         model = InstalledDevice
-        fields = ['id', 'serial_number', 'installation_date', 'device', 'customer']
+        fields = [
+            'id', 'serial_number', 'installation_date',
+            'device', 'customer', 'device_id', 'customer_id'
+        ]
 
